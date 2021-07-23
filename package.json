@@ -1,0 +1,36 @@
+{
+  "name": "mapas-uc",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Benjamín Vicente"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "next": "^11.0.1",
+    "next-pwa": "^5.2.24",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-leaflet": "^3.1.0",
+    "sass": "^1.34.1"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.0",
+    "@types/react": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "typescript": "^4.3.5"
+  }
+}
