@@ -1,5 +1,13 @@
-$light_grey: #ffffff;
-
 :root {
-  --bg-grey: #{$light_grey};
+  // base colors
+  --white: #fdfdfd;
+  --gray-1: #f2f2f7;
+  --gray-2: #E5E5EA;
+  --gray-3: #C7C7CC;
+  --gray-4: #aeaeb2;
+  --gray-5: #555d60;
+  --black: #000;
+  // general
+  --alert: #f0170c;
+  --link: #1e37a8;
 }

@@ -4,7 +4,7 @@
 // colors probably should be moved to another css file
 
 .segmented_control {
-  background: #efeff0;
+  background: var(--gray-2);
   margin: 0;
   padding: 2px;
   border-radius: 10px;
@@ -47,7 +47,7 @@
     &::before, &::after {
       content: '';
       width: 1px;
-      background: #8e8e9326;
+      background: var(--gray-4);
       position: absolute;
       top: 14%;
       bottom: 14%;
@@ -64,6 +64,7 @@
 
     // text label in front of selector
     span {
+      color: var(--gray-5);
       display: block;
       position: relative;
       z-index: 2;
@@ -88,8 +89,7 @@
 
 .selection {
   height: 100%;
-  background: #ffffff;
-  border: .5px solid #0000000a;
+  background: var(--white);
   box-shadow: 0 3px 8px 0 #0000001f, 0 3px 1px 0 #0000000a;
   border-radius: 7px;
   grid-column: 1;
