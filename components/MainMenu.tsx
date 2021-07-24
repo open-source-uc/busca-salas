@@ -11,7 +11,7 @@ function unsplash(str: TemplateStringsArray) {
 const CAMPUSES = [
   { name: "San Joaquín", code: "SJ" },
   { name: "Casa Central", code: "CC" },
-  { name: "El Contador", code: "EC" }
+  { name: "Lo Contador", code: "LC" }
 ]
 
 const CARDS = [

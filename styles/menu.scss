@@ -5,13 +5,12 @@
 }
 
 #dragger-indicator {
-  margin: 15px auto 15px auto;
-  max-width: 80px;
-  height: 8px;
+  margin: 10px 0;
   width: 50px;
-  background-color: #e7e7e7;
+  min-height: 8px;
   border: none;
   border-radius: 5px;
+  background: var(--gray-3);
 }
 
 #search {
@@ -23,18 +22,19 @@
   font-size: 1.1em;
   border: 1px solid transparent;
   font-weight: 600;
-  color: #5a5a5a;
-  background: #EFEFF0;
+  color: var(--gray-5);
+  background: var(--gray-2);
   &:active, &:focus-visible, &:focus {
     outline: none;
-    color: #000000;
-    background: #f3f3f3;
-    border: 1px solid #e1e1e3;
+    color: var(--black);
+    background: var(--gray-1);
+    border: 1px solid var(--gray-2);
   }
 }
 
 #search-result-area {
   height: 100%;
+  overflow-y: auto;
 }
 
 .card-container {
@@ -45,7 +45,6 @@
   grid-auto-columns: 1fr;
   grid-auto-rows: 100px;
   gap: 8px;
-  overflow-y: auto;
 }
 
 .card {
@@ -54,15 +53,13 @@
   display: block;
   border-radius: 8px;
   position: relative;
-  background-color: #868686;
   cursor: pointer;
-
   > div {
     position: absolute;
     left: 0;
     bottom: 0;
     padding: 10px 20px;
-    color: white;
+    color: #fff;
     font-weight: 500;
     z-index: 1;
     > p {
