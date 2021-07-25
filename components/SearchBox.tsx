@@ -1,15 +1,19 @@
-function triggerSearch() {
-  console.log("should search here")
-}
+import { FormEvent } from "react"
+import { useAppDispatch, useAppSelector } from "../lib/redux/hooks"
+import { setQuery, search } from "../lib/redux/main/slice"
 
-import { useState, FormEvent } from "react"
-function handleSubmit(event: FormEvent) {
-  event.preventDefault()
-  triggerSearch()
-}
 
-function SearchBox({ searchValue = "" }: { searchValue?: string }) {
-  const [value, setValue] = useState(searchValue)
+
+function SearchBox() {
+  const dispatch = useAppDispatch()
+  const value = useAppSelector(state => state.main.query)
+  const setValue = (v: string) => dispatch(setQuery(v))
+
+  function handleSubmit(event: FormEvent) {
+    dispatch(search())
+    event.preventDefault()
+    return false
+  }
 
   return (
     <form id="search-container" onSubmit={handleSubmit}>
