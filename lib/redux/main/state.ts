@@ -1,7 +1,9 @@
+import { Place } from "../../fileSearcher"
+
 export interface MainState {
   query?: string,
   campus: string,
-  results: Array<Record<string, unknown>>
+  results: Array<Place>
 }
 
 // TODO: initial state should depend on user config or URI

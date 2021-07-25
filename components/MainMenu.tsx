@@ -1,11 +1,15 @@
+import { useAppSelector } from "../lib/redux/hooks"
 import { CAMPUSES, CARDS } from "../lib/constants"
 import PillSelect from "./SegmentedControl"
 import SearchBox from "./SearchBox"
 import CardContainer from "./SearchCards"
-import SearchResults, { Result } from "./SearchResults"
+import SearchResults from "./SearchResults"
 import Footer from "./Footer"
 
-export default function MainMenu({ results = [] }: { results?: Result[] }) {
+
+export default function MainMenu() {
+  const results = useAppSelector(state => state.main.results)
+
   return (
     <nav id="main-menu">
       <hr id="dragger-indicator" />

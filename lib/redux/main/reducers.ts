@@ -1,3 +1,5 @@
+import { PayloadAction } from "@reduxjs/toolkit"
+import fileSearch from "../../fileSearcher"
 import { MainState } from "./state"
 
 function updateURI({ query = "", campus }) {
@@ -7,22 +9,25 @@ function updateURI({ query = "", campus }) {
   window.history.replaceState({}, "", uri.toString())
 }
 
-export function setCampus(state: MainState, { payload }) {
+export function setCampus(state: MainState, { payload }: PayloadAction<string>) {
   const campusCode = payload
   state.campus = campusCode
   updateURI(state)
 }
 
-export function setQuery(state: MainState, { payload }) {
+export function setQuery(state: MainState, { payload }: PayloadAction<string>) {
   const query = payload
   state.query = query
   updateURI(state)
 }
 
-export function search(state: MainState) {
+export function search(state: MainState, { payload = "" }: PayloadAction<string>) {
+  if (payload) {
+    state.query = payload
+    updateURI(state)
+  }
   const { campus, query } = state
-  console.log("Searching with state", campus, query)
-  state.results = []
+  state.results = fileSearch(query, campus)
 }
 
 export function clear(state: MainState) {

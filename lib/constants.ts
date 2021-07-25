@@ -3,7 +3,8 @@ import { unsplash } from "./helpers"
 export const CAMPUSES = [
   { name: "San Joaquín", code: "SJ" },
   { name: "Casa Central", code: "CC" },
-  { name: "Lo Contador", code: "LC" }
+  { name: "Lo Contador", code: "LC" },
+  { name: "Oriente", code: "OR" }
 ]
 
 export const CARDS = [
