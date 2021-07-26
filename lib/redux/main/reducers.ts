@@ -22,6 +22,7 @@ export function setQuery(state: MainState, { payload }: PayloadAction<string>) {
 }
 
 export function search(state: MainState, { payload = "" }: PayloadAction<string>) {
+  state.searching = true
   if (payload) {
     state.query = payload
     updateURI(state)
@@ -31,6 +32,8 @@ export function search(state: MainState, { payload = "" }: PayloadAction<string>
 }
 
 export function clear(state: MainState) {
+  state.searching = false
   state.results = []
   state.query = null
+  updateURI(state)
 }

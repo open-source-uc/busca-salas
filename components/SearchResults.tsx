@@ -1,3 +1,4 @@
+import { useAppSelector } from "../lib/redux/hooks"
 import { Place } from "../lib/fileSearcher"
 
 function ResultElement({ name }: Place) {
@@ -6,7 +7,8 @@ function ResultElement({ name }: Place) {
   )
 }
 
-export default function SearchResults({ results }: { results: Array<Place> }) {
+export default function SearchResults() {
+  const results = useAppSelector(state => state.main.results)
   return (
     <ol>
       {results.map((result, index) => <ResultElement {...result} key={index} />)}

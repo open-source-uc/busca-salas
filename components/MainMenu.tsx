@@ -8,7 +8,7 @@ import Footer from "./Footer"
 
 
 export default function MainMenu() {
-  const results = useAppSelector(state => state.main.results)
+  const searching = useAppSelector(state => state.main.searching)
 
   return (
     <nav id="main-menu">
@@ -16,7 +16,7 @@ export default function MainMenu() {
       <PillSelect campuses={CAMPUSES} />
       <SearchBox />
       <div id="search-result-area">
-        {results.length ? <SearchResults results={results} /> : <CardContainer cards={CARDS} />}
+        {searching ? <SearchResults /> : <CardContainer cards={CARDS} />}
       </div>
       <Footer />
     </nav>
