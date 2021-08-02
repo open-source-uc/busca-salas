@@ -1,8 +1,9 @@
 import Head from "next/head"
 import dynamic from "next/dynamic"
 import { useEffect } from "react"
+import { Provider } from "react-redux"
 import MainMenu from "../components/MainMenu"
-
+import store from "../lib/redux/store"
 
 export default function MainApp() {
   // The Map component should be imported dynamically
@@ -24,15 +25,17 @@ export default function MainApp() {
   })
 
   return (
-    <main id="app">
-      <Head>
-        <meta charSet="UTF-8" />
-        <title>Mapas UC</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <Map />
-      <MainMenu />
-    </main>
+    <Provider store={store}>
+      <main id="app">
+        <Head>
+          <meta charSet="UTF-8" />
+          <title>Mapas UC</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Head>
+        <Map />
+        <MainMenu />
+      </main>
+    </Provider>
   )
 }

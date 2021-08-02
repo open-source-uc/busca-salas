@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, AttributionControl } from "react-leaflet"
 import { LatLng } from "leaflet"
+import { useAppSelector } from "../lib/redux/hooks"
 import MapMarker from "./MapElements/Marker"
 import MapInfo from "./MapElements/Info"
 import LocationMarker from "./MapElements/Location"
@@ -8,10 +9,25 @@ import "leaflet/dist/leaflet.css"
 
 const SAN_JOAQUIN_CORDS = new LatLng(-33.498, -70.612)
 
-
 type MapArguments = { centerAt?: LatLng, markers?: Array<LatLng> }
 
-export default function Map({ centerAt = SAN_JOAQUIN_CORDS, markers = [SAN_JOAQUIN_CORDS] }: MapArguments) {
+function ResultsComponent() {
+  const results = useAppSelector(state => state.main.results)
+  type Result = typeof results[0]
+
+  function createMarker(result: Result, index: number) {
+    const latLng = new LatLng(result.location.coordinates[0], result.location.coordinates[1])
+    return <MapMarker position={latLng} key={index}>
+      <>{result.parent.campus}: {result.name}</>
+    </MapMarker>
+  }
+
+  return <>{results.map(createMarker)}</>
+}
+
+
+export default function Map({ centerAt = SAN_JOAQUIN_CORDS }: MapArguments) {
+
   return (
     <div id="map-container">
       <MapInfo message="debug info" />
@@ -22,7 +38,7 @@ export default function Map({ centerAt = SAN_JOAQUIN_CORDS, markers = [SAN_JOAQU
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <AttributionControl position="topright" />
-        {markers.map((value, index) => <MapMarker position={value} key={index}>Popup de ejemplo</MapMarker>)}
+        <ResultsComponent />
       </MapContainer>
     </div>
   )
