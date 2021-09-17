@@ -1,7 +1,11 @@
 import "leaflet/dist/leaflet.css"
+import "font-awesome/css/font-awesome.min.css"
+
 import { MapContainer, TileLayer, AttributionControl, useMapEvents } from "react-leaflet"
-import { LatLng } from "leaflet"
-import MapInfo from "./MapElements/Info"
+import { LatLng, Map } from "leaflet"
+import Locate from "leaflet.locatecontrol"
+
+
 import LocationMarker from "./MapElements/Location"
 import ResultsComponent from "./MapElements/Result"
 
@@ -21,13 +25,18 @@ function CopyLocationEventHandler() {
   return null
 }
 
-export default function Map({ centerAt = SAN_JOAQUIN_CORDS }: MapArguments) {
+function onMapCreation(map: Map) {
+  // https://github.com/domoritz/leaflet-locatecontrol#possible-options
+  // TODO: config this
+  (new Locate({flyTo: true})).addTo(map)
+}
+
+export default function MapComponent({ centerAt = SAN_JOAQUIN_CORDS }: MapArguments) {
 
   return (
     <div id="map-container">
-      <MapInfo message="debug info" />
-      <MapContainer id="map" center={centerAt} zoom={16} attributionControl={false} whenCreated={map => map.locate()}>
-        <LocationMarker />
+      {/* <MapInfo message="debug info" /> */}
+      <MapContainer id="map" center={centerAt} zoom={16} attributionControl={false} whenCreated={onMapCreation} >
         {IN_PRODUCTION ? <CopyLocationEventHandler /> : null}
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
