@@ -8,13 +8,13 @@ export default function ResultsComponent() {
   type Result = typeof results[0]
 
   function createMarker(result: Result, index: number) {
-    const latLng = new LatLng(result.location.latLng[0], result.location.latLng[1])
+    const latLng = new LatLng(result.latLng[0], result.latLng[1])
     const marker = <MapMarker position={latLng} key={index}>
-      <>{result.location.campus}: {result.name}</>
+      <>{result.campus}: {result.name}</>
     </MapMarker>
-    if (!result.location.polygon)
+    if (!result.polygon)
       return marker
-    return [marker, <Polygon positions={result.location.polygon} key={index} />]
+    return [marker, <Polygon positions={result.polygon} key={index} />]
   }
   return <>{results.map(createMarker)}</>
 }
