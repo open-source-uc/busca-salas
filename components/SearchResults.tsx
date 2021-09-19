@@ -1,9 +1,11 @@
 import { useAppSelector } from "../lib/redux/hooks"
-import { Place } from "../lib/fileSearcher"
+import { Place } from "../lib/types"
 
-function ResultElement({ name }: Place) {
+function ResultElement({ name, description }: Place) {
   return (
-    <li className="search-result">{name}</li>
+    <li className="search-result">
+      {name}: {description}
+    </li>
   )
 }
 
