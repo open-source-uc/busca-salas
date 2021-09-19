@@ -1,5 +1,4 @@
 import Fuse from "fuse.js"
-import { getOwnPropertyDescriptors } from "immer/dist/internal"
 import data from "../assets/data.json"
 import { Place } from "./types"
 
@@ -20,8 +19,6 @@ const fuseOptions: Fuse.IFuseOptions<Place> = {
     { name: "description", weight: 2 }
   ]
 }
-
-
 
 function getOrCreate<T>(collection: Mapping<T>, key: string, create: (key: string) => T) {
   return collection[key] || (collection[key] = create(key))

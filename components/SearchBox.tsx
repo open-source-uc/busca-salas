@@ -8,8 +8,8 @@ function SearchBox() {
   const dispatch = useAppDispatch()
 
   function handleSubmit(event: FormEvent) {
-    dispatch(inputValue == "" ? clear() : search(inputValue))
     event.preventDefault()
+    dispatch(inputValue == "" ? clear() : search(inputValue))
     return false
   }
 
