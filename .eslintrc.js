@@ -46,6 +46,7 @@ module.exports = {
     "react/self-closing-comp": [1, { component: true }],
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@next/next/no-img-element": 0,
-    "import/order": 1
+    "import/order": 1,
+    "@typescript-eslint/ban-ts-comment": 1
   }
 }

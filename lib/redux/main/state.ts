@@ -1,4 +1,4 @@
-import { Place } from "../../fileSearcher"
+import { Place } from "../../types"
 
 export interface MainState {
   query: string,

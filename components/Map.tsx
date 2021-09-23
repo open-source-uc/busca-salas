@@ -4,9 +4,6 @@ import "font-awesome/css/font-awesome.min.css"
 import { MapContainer, TileLayer, AttributionControl, useMapEvents } from "react-leaflet"
 import { LatLng, Map } from "leaflet"
 import Locate from "leaflet.locatecontrol"
-
-
-import LocationMarker from "./MapElements/Location"
 import ResultsComponent from "./MapElements/Result"
 
 const IN_PRODUCTION = process.env.NODE_ENV === "development"
@@ -28,6 +25,7 @@ function CopyLocationEventHandler() {
 function onMapCreation(map: Map) {
   // https://github.com/domoritz/leaflet-locatecontrol#possible-options
   // TODO: config this
+  // @ts-ignore
   (new Locate({flyTo: true})).addTo(map)
 }
 

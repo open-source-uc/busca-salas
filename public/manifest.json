@@ -1,4 +1,33 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Busca Salas"
+  "name": "UbiCate: Busca lugares en la UC",
+  "short_name": "UbiCate",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "es",
+  "background_color": "#2e3440",
+  "theme_color": "#2e3440",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "196x196",
+      "src": "/img/icon/main.png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/img/icon/main-big.png"
+    },
+    {
+      "purpose": "maskable",
+      "sizes": "196x196",
+      "src": "/img/icon/maskable.png"
+    },
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "/img/icon/maskable-big.png"
+    }
+  ]
 }
