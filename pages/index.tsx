@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { Provider } from "react-redux"
 import { useRouter } from "next/dist/client/router"
 import MainMenu from "../components/MainMenu"
-import AboutAndConfigModal from "../components/AboutAndConfigModal"
+// import AboutAndConfigModal from "../components/AboutAndConfigModal"
 import AppMetaTags, { MetaTagsData } from "../components/AppMetaTags"
 import store from "../lib/redux/store"
 
@@ -68,7 +68,7 @@ export default function MainApp() {
 
   return (
     <Provider store={store}>
-      { modal ? <AboutAndConfigModal/> : null }
+      {/* { modal ? <AboutAndConfigModal/> : null } */}
       <main id="app">
         <Head>
           <meta charSet="UTF-8" />

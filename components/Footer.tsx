@@ -1,15 +1,11 @@
-import Link from "next/link"
-
 export default function Footer() {
   return (
     <footer>
       <div>
-        Creado por Benjamín Vicente.
+        Creado por <a href="https://github.com/benjavicente">Benjamín Vicente</a>.
       </div>
       <div>
-        <Link href="/about">
-          <a>Más información</a>
-        </Link>
+          <a href="https://github.com/open-source-uc/busca-salas">Más información</a>
       </div>
     </footer>
   )

@@ -33,7 +33,12 @@ export default function MapComponent({ centerAt = SAN_JOAQUIN_CORDS }: MapArgume
 
   return (
     <div id="map-container">
-      {/* <MapInfo message="debug info" /> */}
+      <a href="https://ubicate.osuc.dev" style={{display: "flex", flexDirection: "column", justifyItems: "center", width: "100%", justifyContent: "center", padding: "0.5rem 2rem", textAlign: "center", textDecoration: "none"}}>
+        <p style={{ margin: 0, color: "oklab(0.72 0 -0.09)", fontWeight: "800" }}>Ir a <span style={{color: "oklab(0.55 -0.07 -0.18)", textDecoration: "underline"}}>ubicate.osuc.dev</span></p>
+        <p style={{ fontSize: "0.75rem", color: "oklab(0.73 -0.03 -0.05)", textWrap: "balance", margin: 0 }}>
+          Ubicaciones actualizadas y aplicación mantenida
+        </p>
+      </a>
       <MapContainer id="map" center={centerAt} zoom={16} attributionControl={false} whenCreated={onMapCreation} >
         {IN_PRODUCTION ? <CopyLocationEventHandler /> : null}
         <TileLayer
